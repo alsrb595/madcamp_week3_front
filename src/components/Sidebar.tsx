@@ -1,7 +1,8 @@
 // src/components/Sidebar.tsx
 //import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Sidebar.css'; // Sidebar 스타일링 파일
+import {useAuth} from '../contexts/AuthContext';
 
 interface SidebarProps{
     isOpen: boolean;
@@ -9,12 +10,25 @@ interface SidebarProps{
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
+  const {isLoggedIn}= useAuth();
+  const navigate =useNavigate();
+
+  const handleLoginLogout = () =>{
+    if(isLoggedIn){
+      navigate('/logout');
+    }
+    else{
+      navigate('/login');
+    }
+    toggleSidebar();
+  }
+  
   return (
     <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-header">
         <button onClick={toggleSidebar}>Close</button>
         <Link to="/profile">Profile</Link>
-        <button>Login / Logout</button>
+        <button onClick={handleLoginLogout}>{isLoggedIn ? 'Logout' : 'Login'}</button>
       </div>
       <nav className="sidebar-nav">
         <h3>My Page</h3>
