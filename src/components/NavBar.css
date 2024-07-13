@@ -1,0 +1,50 @@
+/* src/components/NavBar.css */
+
+.navbar {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  z-index: 1000;
+}
+
+.navbar-logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.navbar-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-icons svg {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+@media (max-width: 600px) {
+  .navbar-logo a {
+    font-size: 18px;
+  }
+
+  .navbar-icons svg {
+    font-size: 20px;
+  }
+
+  .navbar {
+    padding: 10px; /* 작은 화면에서 패딩 줄이기 */
+  }
+
+  .navbar-icons {
+    gap: 5px; /* 작은 화면에서 아이콘 간격 줄이기 */
+  }
+}

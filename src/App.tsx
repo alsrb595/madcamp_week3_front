@@ -4,20 +4,25 @@
 import './App.css'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
+import CartPage from './pages/CartPage';
+import ProfilePage from './pages/ProfilePage';
+import PurchasePage from './pages/PurchasePage';
+import SalesPage from './pages/SalesPage';
+import NavBar from './components/NavBar';
+import './App.css';
 
 function App() {
     return (
       <Router>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-        </nav>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/sales" element={<SalesPage />} />
+        <Route path="/purchases" element={<PurchasePage />} />
+      </Routes>
+    </Router>
     );
 
 }
