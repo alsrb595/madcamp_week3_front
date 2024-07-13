@@ -9,6 +9,9 @@
     transition: right 0.3s ease;
     display: flex;
     flex-direction: column;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    transition: transform 0.3s ease-in-out; /* 부드러운 열림/닫힘 애니메이션 */
+    overflow-y: auto; /* 세로 스크롤 활성화 */
   }
   
   .sidebar.open {

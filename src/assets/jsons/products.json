@@ -1,0 +1,122 @@
+[
+  {
+    "photoId": "1",
+    "pictured_by": "57",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "1080",
+    "category": "귀여운",
+    "detail": "귀여운 곰돌이가 춤추는 배경화면입니다."
+  },
+  {
+    "photoId": "2",
+    "pictured_by": "45",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "2740",
+    "category": "멋진",
+    "detail": "멋진 풍경 사진입니다."
+  },
+  {
+    "photoId": "3",
+    "pictured_by": "29",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "2060",
+    "category": "사랑스러운",
+    "detail": "사랑스러운 고양이 사진입니다."
+  },
+  {
+    "photoId": "4",
+    "pictured_by": "10",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "1500",
+    "category": "화려한",
+    "detail": "화려한 불꽃놀이 사진입니다."
+  },
+  {
+    "photoId": "5",
+    "pictured_by": "82",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "1220",
+    "category": "아름다운",
+    "detail": "아름다운 꽃밭 사진입니다."
+  },
+  {
+    "photoId": "6",
+    "pictured_by": "64",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "1930",
+    "category": "신비로운",
+    "detail": "신비로운 밤하늘 사진입니다."
+  },
+  {
+    "photoId": "7",
+    "pictured_by": "33",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "2750",
+    "category": "평화로운",
+    "detail": "평화로운 해변 사진입니다."
+  },
+  {
+    "photoId": "8",
+    "pictured_by": "7",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "1300",
+    "category": "낭만적인",
+    "detail": "낭만적인 석양 사진입니다."
+  },
+  {
+    "photoId": "9",
+    "pictured_by": "56",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "2410",
+    "category": "고요한",
+    "detail": "고요한 호수 사진입니다."
+  },
+  {
+    "photoId": "10",
+    "pictured_by": "22",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "2100",
+    "category": "생동감 있는",
+    "detail": "생동감 있는 도시 야경 사진입니다."
+  },
+  {
+    "photoId": "11",
+    "pictured_by": "78",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "1650",
+    "category": "활기찬",
+    "detail": "활기찬 시장 사진입니다."
+  },
+  {
+    "photoId": "12",
+    "pictured_by": "15",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "2900",
+    "category": "시원한",
+    "detail": "시원한 폭포 사진입니다."
+  },
+  {
+    "photoId": "13",
+    "pictured_by": "92",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "1780",
+    "category": "안락한",
+    "detail": "안락한 침실 사진입니다."
+  },
+  {
+    "photoId": "14",
+    "pictured_by": "37",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "2590",
+    "category": "깨끗한",
+    "detail": "깨끗한 주방 사진입니다."
+  },
+  {
+    "photoId": "15",
+    "pictured_by": "81",
+    "imgUri": "src/assets/images/example.jpg",
+    "price": "2200",
+    "category": "활기찬",
+    "detail": "활기찬 거리 풍경 사진입니다."
+  }
+]

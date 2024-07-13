@@ -28,7 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       <div className="sidebar-header">
         <button onClick={toggleSidebar}>Close</button>
         <Link to="/profile">Profile</Link>
-        <button onClick={handleLoginLogout}>{isLoggedIn ? 'Logout' : 'Login'}</button>
+        <button onClick={handleLoginLogout} style={{marginRight:'10px'}}>{isLoggedIn ? 'Logout' : 'Login'}</button>
       </div>
       <nav className="sidebar-nav">
         <h3>My Page</h3>

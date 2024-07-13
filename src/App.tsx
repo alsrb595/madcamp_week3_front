@@ -12,6 +12,7 @@ import NavBar from './components/NavBar';
 import './App.css';
 import LoginPage from './pages/LoginPage';
 import LogoutPage from './pages/LogoutPage';
+import ProductDetailPage from './pages/ProductDetailPage';
 
 const App:  React.FC = () =>{
     return (
@@ -25,6 +26,7 @@ const App:  React.FC = () =>{
           <Route path="/purchases" element={<PurchasePage />} />
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/logout" element={<LogoutPage/>}/>
+          <Route path="/product/:id" element={<ProductDetailPage />} />
       </Routes>
     </div>
     );
