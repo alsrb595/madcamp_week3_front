@@ -19,7 +19,7 @@ function ProfilePage() {
       navigate('/cart');
     }
     else{
-      navigate('/login');
+      navigate('/cart/login');
     }
   }
 

@@ -1,0 +1,108 @@
+[
+    {
+      "id": "user1",
+      "email": "email1@gmail.com",
+      "nickname": "nickname1",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user2",
+      "email": "email2@gmail.com",
+      "nickname": "nickname2",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user3",
+      "email": "email3@gmail.com",
+      "nickname": "nickname3",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user4",
+      "email": "email4@gmail.com",
+      "nickname": "nickname4",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user5",
+      "email": "email5@gmail.com",
+      "nickname": "nickname5",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user6",
+      "email": "email6@gmail.com",
+      "nickname": "nickname6",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user7",
+      "email": "email7@gmail.com",
+      "nickname": "nickname7",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user8",
+      "email": "email8@gmail.com",
+      "nickname": "nickname8",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user9",
+      "email": "email9@gmail.com",
+      "nickname": "nickname9",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user10",
+      "email": "email10@gmail.com",
+      "nickname": "nickname10",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user11",
+      "email": "email11@gmail.com",
+      "nickname": "nickname11",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user12",
+      "email": "email12@gmail.com",
+      "nickname": "nickname12",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user13",
+      "email": "email13@gmail.com",
+      "nickname": "nickname13",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user14",
+      "email": "email14@gmail.com",
+      "nickname": "nickname14",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    },
+    {
+      "id": "user15",
+      "email": "email15@gmail.com",
+      "nickname": "nickname15",
+      "profileImage": "/src/assets/images/profile.jpg",
+      "thumbnailImage": "/src/assets/images/thumbnail.jpg"
+    }
+  ]
+  

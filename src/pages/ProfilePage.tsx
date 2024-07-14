@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import './ProfilePage.css';
 
 function ProfilePage() {
-  const {isLoggedIn} = useAuth();
+  const {isLoggedIn,userEmail, userId, userNickname,userProfileImage,userThumbnailImage} = useAuth();
+  
   const navigate =useNavigate();
+
 
   const handleLogout = () =>{
     if(isLoggedIn){
@@ -19,21 +22,26 @@ function ProfilePage() {
       navigate('/profile');
     }
     else{
-      navigate('/login');
+      navigate('/profile/login');
     }
   }
 
   if(isLoggedIn){
     return (
-      <div>
-        <h1>Profile Page</h1>
-        <button onClick={handleLogout}>Logout</button>
+      <div className="profile-card">
+        <h1>Personal Info</h1>
+        <img className="profile-image" src={userProfileImage} alt="Profile"/>
+        <p>Nickname: {userNickname}</p>
+        <p>ID: {userId}</p>
+        <p>Email: {userEmail}</p>
+        <button className="edit-button" onClick={() => navigate('/profile/edit')}>정보 수정하기</button>
+        <button className="logout-button" onClick={handleLogout}>Logout</button>
       </div>
     );
   }
   else{
     return(
-      <div>
+      <div className="login-prompt">
         <h1>로그인 해주세요</h1>
         <h2>프로필 보기는 로그인 후 가능합니다.</h2>
         <button onClick={handleLogin}>Login</button>
