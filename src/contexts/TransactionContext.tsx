@@ -20,6 +20,7 @@ interface TransactionContextType{
   startTransaction: (transaction: Transaction)=>void;
   doneTransaction:(transaction: Transaction) =>void;
   cancelTransaction: (transaction: Transaction)=> void;
+  initTransaction:()=>void;
 }
 
 const TransactionContext = createContext<TransactionContextType | undefined>(undefined);
@@ -83,10 +84,16 @@ export const TransactionProvider: React.FC<{ children: ReactNode }> = ({ childre
       (t.photo_id != transaction.photo_id)));
     }
   }
+  const initTransaction=()=>{
+    setUserBuying([]);
+    setUserBought([]);
+    setUserSelling([]);
+    setUserSold([]);
+  }
 
 
   return (
-    <TransactionContext.Provider value={{userBuying,userBought,userSelling,userSold,fetchTransaction,startTransaction, doneTransaction, cancelTransaction}}>
+    <TransactionContext.Provider value={{userBuying,userBought,userSelling,userSold,fetchTransaction,startTransaction, doneTransaction, cancelTransaction,initTransaction}}>
       {children}
     </TransactionContext.Provider>
   );

@@ -4,6 +4,8 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import './ProductDetailPage.css';
 import {useCart} from '../contexts/CartContext';
+import { useTransaction } from '../contexts/TransactionContext';
+import { useAuth } from '../contexts/AuthContext';
 
 
 interface Product{
@@ -24,6 +26,12 @@ interface User{
   displayName: string;
 }
 
+interface Transaction{
+  photo_id:number;
+  consumer_email: string;
+  is_delivered:boolean;
+}
+
 const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string}>();
   const photo_id=Number(id);
@@ -33,7 +41,9 @@ const ProductDetailPage: React.FC = () => {
   const[whichPopup, setWhichPopup] =useState<number>(0);
   //0=> nothing, 1=> 문의하기, 2=>구매하기, 3=>장바구니
   //const navigate=useNavigate();
+  const {isLoggedIn,userEmail}=useAuth();
   const {addToCart,cartlist}=useCart();
+  const {startTransaction,userBuying}=useTransaction();
 
   useEffect(()=>{
     axios.get('/src/assets/jsons/products.json')
@@ -93,7 +103,16 @@ const ProductDetailPage: React.FC = () => {
           </div>
         </div>
       )}
-      {(whichPopup== 1)&&
+      {(whichPopup)&&(!isLoggedIn)&&
+        <div className="popup">
+          <div className="popup-inner">
+            <button className="close-btn" onClick={()=>togglePopup(0)}>X</button>
+            <h2>{["error","문의하기","구매하기","장바구니"][whichPopup]}</h2>
+            <p>로그인 후 이용 가능한 서비스입니다.</p>
+          </div>
+        </div>
+      }
+      {(whichPopup== 1)&&isLoggedIn&&
         <div className="popup">
           <div className="popup-inner">
             <button className="close-btn" onClick={()=>togglePopup(0)}>X</button>
@@ -103,17 +122,29 @@ const ProductDetailPage: React.FC = () => {
           </div>
         </div>
       }
-      {(whichPopup== 2)&&
+      {(whichPopup== 2)&& isLoggedIn &&
         <div className="popup">
           <div className="popup-inner">
             <button className="close-btn" onClick={()=>togglePopup(0)}>X</button>
             <h2>구매하기</h2>
-            <p>구매하시겠습니까?</p>
-            <button className="btn">구매하기</button>
+            {userBuying.some((t) => t.photo_id==product.photo_id)?     
+             <p>이미 구매 신청중인 상품입니다.</p> 
+            :
+            <div>
+              <p>구매하시겠습니까?</p>
+              <button className="btn" onClick= {()=>{
+              startTransaction(
+                {photo_id: product.photo_id,
+                  consumer_email: userEmail,
+                  is_delivered: false} as Transaction
+              );
+              togglePopup(0);              
+              }}>구매신청</button>
+            </div>}
           </div>
         </div>
       }
-      {(whichPopup== 3)&&
+      {(whichPopup== 3)&&isLoggedIn&&
         <div className="popup">
           <div className="popup-inner">
             <button className="close-btn" onClick={()=>togglePopup(0)}>X</button>

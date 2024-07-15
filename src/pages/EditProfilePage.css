@@ -1,0 +1,56 @@
+.profile-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  margin: 20px auto;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  margin-bottom: 20px;
+}
+
+.profile-card h1, .profile-card p, .profile-card button, .profile-card label {
+  margin: 10px 0;
+}
+
+.profile-card input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.edit-button, .logout-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.edit-button:hover, .logout-button:hover {
+  background-color: #0056b3;
+}
+
+.login-prompt {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.login-prompt button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

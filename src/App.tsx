@@ -13,6 +13,8 @@ import './App.css';
 import LoginPage from './pages/LoginPage';
 import LogoutPage from './pages/LogoutPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import TagPage from './pages/TagPage';
+import EditProfilePage from './pages/EditProfilePage';
 
 const App:  React.FC = () =>{
     return (
@@ -20,7 +22,10 @@ const App:  React.FC = () =>{
       <NavBar />
       <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/tagpage" element={<TagPage/>}/>
+
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path= "/editprofile" element={<EditProfilePage/>}/>
           <Route path="/cart" element={<CartPage />} />
           <Route path="/sales" element={<SalesPage />} />
           <Route path="/purchases" element={<PurchasePage />} />

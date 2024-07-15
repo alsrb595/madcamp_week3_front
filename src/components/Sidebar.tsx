@@ -12,7 +12,7 @@ interface SidebarProps{
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
-  const {isLoggedIn,userThumbnailImage}= useAuth();
+  const {isLoggedIn,userProfileImage}= useAuth();
   const navigate =useNavigate();
 
   const handleLoginLogout = () =>{
@@ -30,8 +30,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       <div className="sidebar-header">
         {isLoggedIn?(
           <img
-            src={userThumbnailImage}
-            alt="User Thumbnail"
+            src={userProfileImage}
+            alt="User Profile"
             className="sidebar-thumbnail"
             onClick={()=>navigate('/profile')}
           />
@@ -50,7 +50,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         <Link to="/purchases">구매 내역</Link>
         <h3>Buy / Sell</h3>
         <Link to="/">모든 상품 조회</Link>
-        <Link to="/product-types">태그별 상품 찾기</Link>
+        <Link to="/tagpage">태그별 상품 찾기</Link>
         <Link to="/sell">상품 등록하기</Link>
         <h3>Board</h3>
         <Link to="/photo-spots">사진 명소</Link>

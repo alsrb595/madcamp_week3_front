@@ -8,10 +8,11 @@ interface AuthContextType{
   userGoogleId: string;
   userDisplayName: string;
   userProfileImage:string;
-  userThumbnailImage:string;
   login:(user:User)=>void;
   logout:()=>void;
-  changeDisplayName:(name: string)=>void }
+  changeDisplayName:(name: string)=>void ;
+  changeUserProfileImage:(uri: string)=> void;
+}
 
 interface User{
   email: string;
@@ -35,8 +36,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [userGoogleId, setUserGoogleId]=useState<string>("");
   const [userDisplayName, setUserDisplayName]=useState<string>("");
   const [userProfileImage, setUserProfileImage]=useState <string>("");
-  const [userThumbnailImage, setUserThumbnail]=useState <string>("");
-
   const login = (userProfile: User) => {
     //add login logic
     setIsLoggedIn(true);
@@ -44,18 +43,25 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setUserGoogleId(userProfile.googleId);
     setUserDisplayName(userProfile.displayName);
     setUserProfileImage("/src/assets/images/profile.jpg");
-    setUserThumbnail("/src/assets/images/thumbnail.jpg");
   }
   const logout = () => {
     //add logout logic
-    setIsLoggedIn(false);}
+    setIsLoggedIn(false);
+    setUserEmail("");
+    setUserGoogleId("");
+    setUserDisplayName("");
+    setUserProfileImage("");
+  }
 
   const changeDisplayName =(name: string)=>{
     setUserDisplayName(name);
   }
+  const changeUserProfileImage=(uri: string)=>{
+    setUserProfileImage(uri);
+  }
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, userEmail, userGoogleId, userDisplayName, userProfileImage, userThumbnailImage, login, logout,changeDisplayName }}>
+    <AuthContext.Provider value={{ isLoggedIn, userEmail, userGoogleId, userDisplayName, userProfileImage, login, logout,changeDisplayName,changeUserProfileImage }}>
       {children}
     </AuthContext.Provider>
   );

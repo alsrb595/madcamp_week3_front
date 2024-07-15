@@ -2,13 +2,19 @@
 import React from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../contexts/CartContext';
+import { useTransaction } from '../contexts/TransactionContext';
 
 const LogoutPage: React.FC = () => {
   const { logout } = useAuth();
+  const {initCart}=useCart();
+  const {initTransaction}=useTransaction();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
+    initCart();
+    initTransaction();
     navigate('/'); // 로그아웃 후 홈 페이지로 이동
   };
 

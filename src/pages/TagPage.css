@@ -1,0 +1,54 @@
+/* src/pages/HomePage.css */
+.home-content {
+  padding: 20px;
+  margin-top: 80px; /* NavBar가 fixed로 되어 있으므로 상단 여백 추가 */
+}
+
+.home-page {
+  padding: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.grid-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.grid-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.grid-item p {
+  margin: 0;
+  color: #333;
+}
+
+@media (max-width: 1200px) {
+  .product-cards {
+    grid-template-columns: repeat(3, 1fr); /* 큰 화면에서는 한 행에 3개씩 */
+  }
+}
+
+@media (max-width: 800px) {
+  .product-cards {
+    grid-template-columns: repeat(2, 1fr); /* 중간 화면에서는 한 행에 2개씩 */
+  }
+}
+
+@media (max-width: 600px) {
+  .product-cards {
+    grid-template-columns: 1fr; /* 작은 화면에서는 한 열에 1개씩 */
+  }
+}

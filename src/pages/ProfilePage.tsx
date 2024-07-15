@@ -34,7 +34,7 @@ function ProfilePage() {
         <p>닉네임: {userDisplayName}</p>
         <p>Google ID: {userGoogleId}</p>
         <p>Email: {userEmail}</p>
-        <button className="edit-button" onClick={() => navigate('/profile/edit')}>정보 수정하기</button>
+        <button className="edit-button" onClick={() => navigate('/editprofile')}>정보 수정하기</button>
         <button className="logout-button" onClick={handleLogout}>Logout</button>
       </div>
     );

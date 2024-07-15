@@ -10,7 +10,7 @@ import {useAuth} from '../contexts/AuthContext'
 const NavBar: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const navigate=useNavigate();
-  const {isLoggedIn, userThumbnailImage}=useAuth();
+  const {isLoggedIn, userProfileImage}=useAuth();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -33,8 +33,8 @@ const NavBar: React.FC = () => {
         <FontAwesomeIcon icon={faShoppingCart} onClick={handleCartClick} />
         {isLoggedIn?(
           <img
-            src={userThumbnailImage}
-            alt="User Thumbnail"
+            src={userProfileImage}
+            alt="User Profile"
             className="navbar-thumbnail"
             onClick={handleProfileClick}
           />
