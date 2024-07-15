@@ -15,6 +15,9 @@ import LogoutPage from './pages/LogoutPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import TagPage from './pages/TagPage';
 import EditProfilePage from './pages/EditProfilePage';
+import TipPage from './pages/TipPage';
+import PostTipPage from './pages/PostTipPage';
+import ViewTipPage from './pages/ViewTipPage';
 
 const App:  React.FC = () =>{
     return (
@@ -36,6 +39,9 @@ const App:  React.FC = () =>{
           <Route path="purchases/login" element={<LoginPage baseroute='/purchases'/>}/>
           <Route path="/logout" element={<LogoutPage/>}/>
           <Route path="/product/:id" element={<ProductDetailPage />} />
+          <Route path="/photo-tips" element={<TipPage/>}/>
+          <Route path="/posttip" element={<PostTipPage/>}/>
+          <Route path="/viewtip/:postId" element={<ViewTipPage />} />
       </Routes>
     </div>
     );

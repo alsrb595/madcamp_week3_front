@@ -1,0 +1,82 @@
+.tip-page {
+  padding: 20px;
+  position: relative;
+}
+
+.posts-list {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+.post-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fff;
+  text-align: left;
+  width: 80%; /* Adjusted width for a better fit */
+  margin: 0 auto; /* Center align the post items */
+}
+
+.post-item h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-item small {
+  color: #777;
+}
+
+.new-tip-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.new-tip-button:hover {
+  background-color: #0056b3;
+}
+
+@media (min-width: 600px) {
+  .posts-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .post-item {
+    width: 100%;
+  }
+}
+
+@media (min-width: 900px) {
+  .posts-list {
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  }
+
+  .post-item {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1800px) {
+  .posts-list {
+    grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+  }
+
+  .post-item {
+    width: 100%;
+  }
+}

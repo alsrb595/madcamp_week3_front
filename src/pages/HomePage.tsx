@@ -31,10 +31,10 @@ function HomePage() {
 
 
   useEffect(()=>{
-    axios.get('src/assets/jsons/products.json')
+    axios.get('/src/assets/jsons/products.json')
       .then(response=> setProducts(response.data))
       .catch(error=> console.error('Error fetching data: ', error));
-    axios.get('src/assets/jsons/users.json')
+    axios.get('/src/assets/jsons/users.json')
       .then(response=> setUsers(response.data))
       .catch(error=> console.error('Error fetching data: ', error));
     },[]);

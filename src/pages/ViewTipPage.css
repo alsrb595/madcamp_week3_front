@@ -1,0 +1,33 @@
+.view-tip-page {
+  padding: 20px;
+}
+
+.view-tip-page h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.view-tip-page p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.view-tip-page small {
+  display: block;
+  margin-bottom: 20px;
+  color: #777;
+}
+
+.post-images {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.post-images img {
+  width: 100%;
+  height: auto;
+  max-width: calc(33.33% - 10px);
+  aspect-ratio: 1;
+  object-fit: cover;
+}

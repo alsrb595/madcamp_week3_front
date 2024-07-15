@@ -1,0 +1,182 @@
+[
+  {
+    "post_id": 1,
+    "displayName": "user1",
+    "post_by": "user1@gmail.com",
+    "title": "음식 사진",
+    "content": "음식 사진을 찍을 때, 인물 모드를 활용하면 새로운 시선을 경험할 수 있답니다. 저 역시도 음식 사진을 어려워하던 때가 있었는데요. 무조건 선명하게만 찍으려 하면 음식의 먹음직스러운 인상에 집중되지 않더라고요. 그런데 인물 사진 모드로 찍어 배경을 흐리면 보다 더 음식에 집중되는 느낌이예요.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-07-15T14:30:00Z"
+  },
+  {
+    "post_id": 2,
+    "displayName": "user2",
+    "post_by": "user2@gmail.com",
+    "title": "풍경 사진",
+    "content": "풍경 사진을 찍을 때는 빛의 방향과 색상을 잘 활용하는 것이 중요합니다. 일출이나 일몰 시간에 찍으면 더 멋진 색감을 얻을 수 있어요.",
+    "urls": ["/src/assets/images/example.jpg"],
+    "created_at": "2023-06-12T10:15:00Z"
+  },
+  {
+    "post_id": 3,
+    "displayName": "user3",
+    "post_by": "user3@gmail.com",
+    "title": "야경 사진",
+    "content": "야경 사진을 찍을 때는 삼각대를 사용하는 것이 중요해요. 긴 노출 시간 동안 카메라가 흔들리지 않도록 해주는 것이 필수입니다.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-05-08T20:45:00Z"
+  },
+  {
+    "post_id": 4,
+    "displayName": "user4",
+    "post_by": "user4@gmail.com",
+    "title": "인물 사진",
+    "content": "인물 사진을 찍을 때는 자연스러운 표정을 유도하는 것이 중요해요. 사진을 찍히는 사람과 대화를 나누면서 자연스럽게 웃게 하세요.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-04-21T14:00:00Z"
+  },
+  {
+    "post_id": 5,
+    "displayName": "user5",
+    "post_by": "user5@gmail.com",
+    "title": "매크로 사진",
+    "content": "매크로 사진을 찍을 때는 피사체에 최대한 가까이 다가가는 것이 중요해요. 렌즈의 초점을 잘 맞춰서 찍으면 아주 선명한 사진을 얻을 수 있습니다.",
+    "urls": ["/src/assets/images/example.jpg"],
+    "created_at": "2023-03-30T09:30:00Z"
+  },
+  {
+    "post_id": 6,
+    "displayName": "user6",
+    "post_by": "user6@gmail.com",
+    "title": "건축 사진",
+    "content": "건축 사진을 찍을 때는 구도를 잘 잡는 것이 중요해요. 건물의 대칭성을 살리면서 찍으면 더 멋진 사진을 얻을 수 있습니다.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-02-15T11:20:00Z"
+  },
+  {
+    "post_id": 7,
+    "displayName": "user7",
+    "post_by": "user7@gmail.com",
+    "title": "동물 사진",
+    "content": "동물 사진을 찍을 때는 동물의 눈높이에 맞춰서 찍는 것이 중요해요. 이렇게 하면 더 생동감 있는 사진을 얻을 수 있습니다.",
+    "urls": ["/src/assets/images/example.jpg"],
+    "created_at": "2023-01-22T16:50:00Z"
+  },
+  {
+    "post_id": 8,
+    "displayName": "user8",
+    "post_by": "user8@gmail.com",
+    "title": "물 사진",
+    "content": "물 사진을 찍을 때는 빛의 반사를 잘 활용하는 것이 중요해요. 물의 표면에 비친 풍경을 함께 찍으면 더 멋진 사진을 얻을 수 있습니다.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-03-11T13:10:00Z"
+  },
+  {
+    "post_id": 9,
+    "displayName": "user9",
+    "post_by": "user9@gmail.com",
+    "title": "도시 사진",
+    "content": "도시 사진을 찍을 때는 높은 곳에서 내려다보는 구도를 활용하는 것이 중요해요. 이렇게 하면 도시의 전경을 한눈에 담을 수 있습니다.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-05-19T15:30:00Z"
+  },
+  {
+    "post_id": 10,
+    "displayName": "user10",
+    "post_by": "user10@gmail.com",
+    "title": "흑백 사진",
+    "content": "흑백 사진을 찍을 때는 강한 명암 대비를 잘 활용하는 것이 중요해요. 이렇게 하면 더 드라마틱한 느낌의 사진을 얻을 수 있습니다.",
+    "urls": ["/src/assets/images/example.jpg"],
+    "created_at": "2023-06-25T17:40:00Z"
+  },
+  {
+    "post_id": 11,
+    "displayName": "user11",
+    "post_by": "user11@gmail.com",
+    "title": "셀피 사진",
+    "content": "셀피 사진을 찍을 때는 자연광을 잘 활용하는 것이 중요해요. 햇빛이 잘 드는 곳에서 찍으면 더 예쁜 사진을 얻을 수 있습니다.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-07-07T10:50:00Z"
+  },
+  {
+    "post_id": 12,
+    "displayName": "user12",
+    "post_by": "user12@gmail.com",
+    "title": "꽃 사진",
+    "content": "꽃 사진을 찍을 때는 꽃의 색감을 잘 살리는 것이 중요해요. 배경을 단순하게 하면 꽃의 아름다움이 더 돋보입니다.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-02-05T08:20:00Z"
+  },
+  {
+    "post_id": 13,
+    "displayName": "user13",
+    "post_by": "user13@gmail.com",
+    "title": "여행 사진",
+    "content": "여행 사진을 찍을 때는 현지의 분위기를 잘 담는 것이 중요해요. 사람들의 일상적인 모습을 담으면 더 생동감 있는 사진이 됩니다.",
+    "urls": ["/src/assets/images/example.jpg"],
+    "created_at": "2023-04-12T14:30:00Z"
+  },
+  {
+    "post_id": 14,
+    "displayName": "user14",
+    "post_by": "user14@gmail.com",
+    "title": "하늘 사진",
+    "content": "하늘 사진을 찍을 때는 구름의 모양을 잘 활용하는 것이 중요해요. 다양한 구름의 형태를 담으면 더 멋진 사진이 됩니다.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-01-29T12:15:00Z"
+  },
+  {
+    "post_id": 15,
+    "displayName": "user15",
+    "post_by": "user15@gmail.com",
+    "title": "겨울 사진",
+    "content": "겨울 사진을 찍을 때는 눈의 질감을 잘 살리는 것이 중요해요. 눈 위의 발자국이나 나무에 쌓인 눈을 담으면 더 아름다운 사진이 됩니다.",
+    "urls": ["/src/assets/images/example.jpg"],
+    "created_at": "2023-12-25T10:00:00Z"
+  },
+  {
+    "post_id": 16,
+    "displayName": "user1",
+    "post_by": "user1@gmail.com",
+    "title": "노을 사진",
+    "content": "노을 사진을 찍을 때는 하늘의 색감을 잘 활용하는 것이 중요해요. 해가 지는 순간의 색감을 담으면 더 멋진 사진이 됩니다.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-07-10T18:30:00Z"
+  },
+  {
+    "post_id": 17,
+    "displayName": "user2",
+    "post_by": "user2@gmail.com",
+    "title": "운동 사진",
+    "content": "운동 사진을 찍을 때는 움직임을 잘 담는 것이 중요해요. 빠른 셔터 속도로 찍으면 역동적인 사진이 됩니다.",
+    "urls": ["/src/assets/images/example.jpg"],
+    "created_at": "2023-09-14T16:40:00Z"
+  },
+  {
+    "post_id": 18,
+    "displayName": "user3",
+    "post_by": "user3@gmail.com",
+    "title": "야생 동물 사진",
+    "content": "야생 동물 사진을 찍을 때는 동물의 자연스러운 모습을 담는 것이 중요해요. 멀리서 찍어 동물을 놀라게 하지 않는 것이 좋습니다.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-08-22T14:00:00Z"
+  },
+  {
+    "post_id": 19,
+    "displayName": "user4",
+    "post_by": "user4@gmail.com",
+    "title": "축제 사진",
+    "content": "축제 사진을 찍을 때는 사람들의 표정을 잘 담는 것이 중요해요. 즐거워하는 순간을 포착하면 더 생동감 있는 사진이 됩니다.",
+    "urls": ["/src/assets/images/example.jpg"],
+    "created_at": "2023-11-11T12:20:00Z"
+  },
+  {
+    "post_id": 20,
+    "displayName": "user5",
+    "post_by": "user5@gmail.com",
+    "title": "바다 사진",
+    "content": "바다 사진을 찍을 때는 파도의 움직임을 잘 담는 것이 중요해요. 빠른 셔터 속도로 파도의 역동적인 모습을 포착할 수 있습니다.",
+    "urls": ["/src/assets/images/example.jpg", "/src/assets/images/example.jpg", "/src/assets/images/example.jpg"],
+    "created_at": "2023-10-01T09:30:00Z"
+  }
+]
