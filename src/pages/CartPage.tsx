@@ -4,20 +4,13 @@ import {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import {useCart} from "../contexts/CartContext";
-import { useEffect } from 'react';
+//import { useEffect } from 'react';
 
-function ProfilePage() {
-  const {isLoggedIn, userId} = useAuth();
-  const {cartlist, removeFromCart,loginCart} =useCart();
+function CartPage() {
+  const {isLoggedIn} = useAuth();
+  const {cartlist, removeFromCart} =useCart();
   const [selectedItems, setSelectedItems]= useState<{[key:string]:boolean}>({});
   const navigate =useNavigate();
-
-
-  useEffect(()=>{
-    if (isLoggedIn && userId){
-      loginCart(userId);
-    }
-  }, [isLoggedIn,userId, loginCart]);
 
   const handleLogout = () =>{
     if(isLoggedIn){
@@ -37,24 +30,24 @@ function ProfilePage() {
     }
   }
 
-  const handleCheckboxChange = (photoId: string) => {
+  const handleCheckboxChange = (photo_id: number) => {
     setSelectedItems({
       ...selectedItems,
-      [photoId]: !selectedItems[photoId]
+      [photo_id]: !selectedItems[photo_id]
     });
   }
 
   const calculateTotal = () => {
     return cartlist
-      .filter(item => selectedItems[item.photoId])
-      .reduce((sum, item) => sum + parseFloat(item.price), 0)
+      .filter(item => selectedItems[item.photo_id])
+      .reduce((sum, item) => sum +item.price, 0)
       .toFixed(0);
   }
 
   if(isLoggedIn){
     return  (
       <div>
-        <h1>Cart Page</h1>
+        <h1>장바구니</h1>
         
         <table>
           <thead>
@@ -68,19 +61,19 @@ function ProfilePage() {
           </thead>
           <tbody>
             {cartlist.map(item => (
-              <tr key={item.photoId}>
+              <tr key={item.photo_id}>
                 <td>
                   <input
                     type="checkbox"
-                    checked={!!selectedItems[item.photoId]}
-                    onChange={() => handleCheckboxChange(item.photoId)}
+                    checked={!!selectedItems[item.photo_id]}
+                    onChange={() => handleCheckboxChange(item.photo_id)}
                   />
                 </td>
-                <td><img src={item.imgUri} alt={item.detail} width="50" /></td>
+                <td><img src={item.url} alt={item.description} width="50" /></td>
                 <td>{item.price}</td>
                 <td>{item.pictured_by}</td>
                 <td>
-                  <button onClick={() => removeFromCart(item.photoId)}>Delete</button>
+                  <button onClick={() => removeFromCart(item.photo_id)}>Delete</button>
                 </td>
               </tr>
             ))}
@@ -109,4 +102,4 @@ function ProfilePage() {
   }
 }
   
-  export default ProfilePage;
+  export default CartPage;

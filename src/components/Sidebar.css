@@ -53,6 +53,12 @@
     text-decoration: underline;
   }
   
+  .sidebar-thumbnail {
+    width: 30px;
+    height: 30px;
+    border-radius: 10%;
+  }
+
   @media (max-width: 600px) {
     .sidebar {
       width: 200px;

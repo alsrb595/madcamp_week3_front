@@ -1,0 +1,71 @@
+.purchases-history-container {
+    text-align: center;
+    top: 80px;
+  }
+  
+  .purchases-history-heading {
+    margin-top: 0px;
+  }
+  
+  .purchases-history-container h2 {
+    text-align: left;
+    margin-left: 20px;
+  }
+  
+  .purchases-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+  }
+  
+  .purchases-table th, .purchases-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .purchases-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .purchases-table img {
+    display: block;
+    margin: auto;
+  }
+  
+  button {
+    margin-top: 0px;
+  }
+
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-inner {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    width: 300px;
+    text-align: center;
+    white-space: pre-wrap;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  

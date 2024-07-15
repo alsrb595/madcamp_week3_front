@@ -1,9 +1,7 @@
-/* src/components/NavBar.css */
-
 .navbar {
   position: fixed;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -26,9 +24,16 @@
   gap: 10px;
 }
 
-.navbar-icons svg {
+.navbar-icons svg,
+.navbar-thumbnail {
   cursor: pointer;
   font-size: 24px;
+}
+
+.navbar-thumbnail {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
 }
 
 @media (max-width: 600px) {
@@ -36,7 +41,8 @@
     font-size: 18px;
   }
 
-  .navbar-icons svg {
+  .navbar-icons svg,
+  .navbar-thumbnail {
     font-size: 20px;
   }
 

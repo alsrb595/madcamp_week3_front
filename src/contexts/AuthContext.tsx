@@ -2,24 +2,21 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 
-interface AuthContextType {
-  isLoggedIn: boolean;
-  userNickname: string;
+interface AuthContextType{
+  isLoggedIn:boolean;
   userEmail: string;
-  userId: string;
-  userProfileImage: string;
-  userThumbnailImage: string;
-  login: (userProfile: User) => void;
-  logout: () => void;
-  changeNickname: (nickname: string)=> void;
-}
+  userGoogleId: string;
+  userDisplayName: string;
+  userProfileImage:string;
+  userThumbnailImage:string;
+  login:(user:User)=>void;
+  logout:()=>void;
+  changeDisplayName:(name: string)=>void }
 
 interface User{
-  id: string;
   email: string;
-  nickname: string;
-  profileImage: string;
-  thumbnailImage: string;
+  googleId: string;
+  displayName: string;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -35,8 +32,8 @@ export const useAuth = () => {
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [userEmail, setUserEmail] =useState<string>("");
-  const [userId, setUserId]=useState<string>("");
-  const [userNickname, setUserNickname]=useState<string>("");
+  const [userGoogleId, setUserGoogleId]=useState<string>("");
+  const [userDisplayName, setUserDisplayName]=useState<string>("");
   const [userProfileImage, setUserProfileImage]=useState <string>("");
   const [userThumbnailImage, setUserThumbnail]=useState <string>("");
 
@@ -44,21 +41,21 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     //add login logic
     setIsLoggedIn(true);
     setUserEmail(userProfile.email);
-    setUserId(userProfile.id);
-    setUserNickname(userProfile.nickname);
-    setUserProfileImage(userProfile.profileImage);
-    setUserThumbnail(userProfile.thumbnailImage);
+    setUserGoogleId(userProfile.googleId);
+    setUserDisplayName(userProfile.displayName);
+    setUserProfileImage("/src/assets/images/profile.jpg");
+    setUserThumbnail("/src/assets/images/thumbnail.jpg");
   }
   const logout = () => {
     //add logout logic
     setIsLoggedIn(false);}
 
-  const changeNickname =(nickname: string)=>{
-    setUserNickname(nickname);
+  const changeDisplayName =(name: string)=>{
+    setUserDisplayName(name);
   }
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, userEmail, userId, userNickname, userProfileImage, userThumbnailImage, login, logout,changeNickname }}>
+    <AuthContext.Provider value={{ isLoggedIn, userEmail, userGoogleId, userDisplayName, userProfileImage, userThumbnailImage, login, logout,changeDisplayName }}>
       {children}
     </AuthContext.Provider>
   );

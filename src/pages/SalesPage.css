@@ -1,0 +1,39 @@
+.sales-history-container {
+    text-align: center;
+    top: 80px;
+  }
+  
+  .sales-history-heading {
+    margin-top: 0px;
+  }
+  
+  .sales-history-container h2 {
+    text-align: left;
+    margin-left: 20px;
+  }
+  
+  .sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+  }
+  
+  .sales-table th, .sales-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .sales-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .sales-table img {
+    display: block;
+    margin: auto;
+  }
+  
+  button {
+    margin-top: 0px;
+  }
+  

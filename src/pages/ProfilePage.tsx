@@ -3,7 +3,7 @@ import { useAuth } from "../contexts/AuthContext";
 import './ProfilePage.css';
 
 function ProfilePage() {
-  const {isLoggedIn,userEmail, userId, userNickname,userProfileImage,userThumbnailImage} = useAuth();
+  const {isLoggedIn,userEmail, userGoogleId, userDisplayName,userProfileImage} = useAuth();
   
   const navigate =useNavigate();
 
@@ -29,10 +29,10 @@ function ProfilePage() {
   if(isLoggedIn){
     return (
       <div className="profile-card">
-        <h1>Personal Info</h1>
+        <h1>{userDisplayName}</h1>
         <img className="profile-image" src={userProfileImage} alt="Profile"/>
-        <p>Nickname: {userNickname}</p>
-        <p>ID: {userId}</p>
+        <p>닉네임: {userDisplayName}</p>
+        <p>Google ID: {userGoogleId}</p>
         <p>Email: {userEmail}</p>
         <button className="edit-button" onClick={() => navigate('/profile/edit')}>정보 수정하기</button>
         <button className="logout-button" onClick={handleLogout}>Logout</button>

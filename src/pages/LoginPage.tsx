@@ -7,22 +7,14 @@ import axios from 'axios';
 import {useCart} from '../contexts/CartContext';
 
 
-
 interface LoginPageProps{
   baseroute: string;
 }
 
-/*interface MockUser{
-  id: string;
-  pw: string;
-}*/
-
 interface User{
-  id: string;
   email: string;
-  nickname: string;
-  profileImage: string;
-  thumbnailImage: string;
+  googleId: string;
+  displayName: string;
 }
 
 
@@ -44,13 +36,13 @@ const LoginPage: React.FC<LoginPageProps> = ({baseroute}) => {
     e.preventDefault();
     const mockuser= mockUsers.find(u=>(u.id == username));
     if( !! mockuser && mockuser.pw == password){
-      const userProfile= users.find(user=> user.id==username);
+      const userProfile= users.find(user=> user.googleId==username);
       if(! userProfile){
         throw new Error("no user info found");
       }
       else {
         login(userProfile);
-        await loginCart(userProfile.id);
+        await loginCart(userProfile.googleId);
       }
     }
     else{

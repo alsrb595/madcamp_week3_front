@@ -4,23 +4,38 @@ import axios from 'axios';
 import './HomePage.css';
 import { useNavigate } from 'react-router-dom';
 
+
 interface Product{
-  photoId: string;
+  photo_id:number;
+  filename: string;
   pictured_by: string;
-  imgUri: string;
-  price: string;
-  category: string;
-  detail:string;
+  url: string;
+  mimetype: string;
+  price: number;
+  description: string;
+  tags: string[];
+  location:string;
+}
+
+interface User{
+  email: string;
+  googleId: string;
+  displayName: string;
 }
 
 function HomePage() {
   //const [message, setMessage] = useState('');
   const[products, setProducts] =useState<Product[]>([]);
+  const[users, setUsers]= useState<User[]>([]);
   const navigate=useNavigate();
+
 
   useEffect(()=>{
     axios.get('src/assets/jsons/products.json')
       .then(response=> setProducts(response.data))
+      .catch(error=> console.error('Error fetching data: ', error));
+    axios.get('src/assets/jsons/users.json')
+      .then(response=> setUsers(response.data))
       .catch(error=> console.error('Error fetching data: ', error));
     },[]);
   
@@ -29,8 +44,10 @@ function HomePage() {
   **    .then(response => setMessage(response.data))
   **    .catch(error => console.error('Error fetching data:', error));
   **}, []);*/
-  const handleItemClick = (photoId:string)=>{
-    navigate('/product/'+photoId);
+
+
+  const handleItemClick = (photo_id:number)=>{
+    navigate('/product/'+photo_id);
   };
   return (
     <div className="home-page">
@@ -39,9 +56,11 @@ function HomePage() {
         {products.map((product, index) => (
           <div key={index}
             className="grid-item"
-            onClick={()=> handleItemClick(product.photoId)}>
-            <img src={product.imgUri} alt={`Product ${index + 1}`} />
-            <p>photo by {product.pictured_by}</p>
+            onClick={()=> handleItemClick(product.photo_id)}>
+            <img src={product.url} alt={`Product ${index + 1}`} />
+            <p>photo by {
+            users.find(user=> product.pictured_by == user.email )?.displayName
+            }</p>
             <p>price:{product.price}</p>
           </div>
         ))}
