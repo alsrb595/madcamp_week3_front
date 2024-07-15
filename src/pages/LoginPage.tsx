@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import mockUsers from '../assets/jsons/mockUser.json'
 import axios from 'axios';
+import {useCart} from '../contexts/CartContext';
 
 
 
@@ -28,6 +29,7 @@ interface User{
 const LoginPage: React.FC<LoginPageProps> = ({baseroute}) => {
   const navigate = useNavigate();
   const { login } = useAuth();
+  const {loginCart} =useCart();
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [users, setUsers]= useState<User[]>([]);
@@ -38,7 +40,7 @@ const LoginPage: React.FC<LoginPageProps> = ({baseroute}) => {
       .catch(error=> console.error('Error fetching data: ',error));
   },[]);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     const mockuser= mockUsers.find(u=>(u.id == username));
     if( !! mockuser && mockuser.pw == password){
@@ -48,7 +50,11 @@ const LoginPage: React.FC<LoginPageProps> = ({baseroute}) => {
       }
       else {
         login(userProfile);
+        await loginCart(userProfile.id);
       }
+    }
+    else{
+     // findAllInRenderedTree('invalid username or password');
     }
     navigate(baseroute);
   };
