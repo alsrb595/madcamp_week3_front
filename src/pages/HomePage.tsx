@@ -3,19 +3,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './HomePage.css';
 import { useNavigate } from 'react-router-dom';
-
-
-interface Product{
-  photo_id:number;
-  filename: string;
-  pictured_by: string;
-  url: string;
-  mimetype: string;
-  price: number;
-  description: string;
-  tags: string[];
-  location:string;
-}
+import{Product} from '../interfaces/types';
+const serverUrl= import.meta.env.VITE_API_URL;
 
 interface User{
   email: string;

@@ -1,62 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
-
-interface Product{
-  photo_id:number;
-  filename: string;
-  pictured_by: string;
-  url: string;
-  mimetype: string;
-  price: number;
-  description: string;
-  tags: string[];
-  location:string;
-}
-
-interface Post{
-  post_id: number;
-  displayName: string;
-  post_by: string;
-  title: string;
-  content: string;
-  urls: string[];
-  created_at: string;
-}
-
-interface UserInfo{
-  email: string;
-  googleId: string;
-  displayName: string;
-  photos: Product[];
-  posts: Post[];
-}
+import {UserInfo} from '../interfaces/types'
 
 const SuccessLogin: React.FC = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const {login}=useAuth();
+  const serverUrl=import.meta.env.VITE_API_URL;
+  const [userInfo, setUserInfo]= useState<UserInfo|null>(null);
 
   useEffect(() => {
+
     const email = searchParams.get('email');
     if (email) {
-      console.log('User:', email); // 여기서 user 값을 변수에 저장하거나 상태 관리
-      
-      axios.get('${import.meta.env.VITE_API_URL}/auth/${email}')
+      console.log('User:', email);
+
+      axios
+        .get<UserInfo>(`${serverUrl}/auth/${email}`)
         .then(response => {
-          const userInfo: UserInfo= response.data;
-          login({email: email, displayName: userInfo.displayName, googleId:userInfo.googleId});
+          setUserInfo(response.data);
         })
         .catch(error => console.error('Error fetching data:', error));
-      
-      
 
-      setTimeout(() => {
+      // userInfo가 업데이트되기를 기다린 후 로그인 및 네비게이션
+      const loginAndNavigate = async () => {
+        await new Promise(resolve => setTimeout(resolve, 500)); // userInfo가 업데이트되도록 지연시간 추가
+        if (userInfo) {
+          login({
+            email: email,
+            displayName: userInfo.displayName,
+            googleId: userInfo.googleId
+          });
+        }
         navigate('/');
-      }, 100); 
+      };
+
+      loginAndNavigate();
     }
-  },[login, navigate, searchParams]);
+  },[login, navigate, searchParams, userInfo]);
 
   return (
     <div>
