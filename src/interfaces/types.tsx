@@ -22,11 +22,10 @@ export interface Product {
     created_at: string;
   }
   
-  // Define UserInfo interface
   export interface UserInfo {
-    "email": string;
-    "googleId": string;
-    "displayName": string;
-    "photos": Product[];
-    "posts": Post[];
+    email: string;
+    googleId: string;
+    displayName: string;
+    photos: Product[];
+    posts: Post[];
   }
