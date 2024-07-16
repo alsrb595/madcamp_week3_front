@@ -4,34 +4,44 @@ import axios from 'axios';
 import './HomePage.css';
 import { useNavigate } from 'react-router-dom';
 import{Product} from '../interfaces/types';
-const serverUrl= import.meta.env.VITE_API_URL;
 
-interface User{
+/*interface User{
   email: string;
   googleId: string;
   displayName: string;
-}
+}*/
 
 function HomePage() {
   
   const[products, setProducts] =useState<Product[]>([]);
-  const[users, setUsers]= useState<User[]>([]);
+  const[users, setUsers]= useState<string[]>([]);
   const navigate=useNavigate();
 
 
   //const [message, setMessage] = useState('');
   useEffect(()=>{
-    axios.get('/src/assets/jsons/products.json')
+    axios.get(`${import.meta.env.VITE_API_URL}/photo`,
+        {
+          headers: {
+            'Content-Type': `application/json`,
+            'ngrok-skip-browser-warning': '69420',
+          }
+        })
       .then(response=> setProducts(response.data))
       .catch(error=> console.error('Error fetching data: ', error));
-    axios.get('/src/assets/jsons/users.json')
-      .then(response=> setUsers(response.data))
-      .catch(error=> console.error('Error fetching data: ', error));
-      /*axios.get('/api')
-          .then(response => setMessage(response.data))
-          .catch(error => console.error('Error fetching data:', error));*/
-
-    },[]);
+    products.forEach(p=> 
+      axios.get(`${import.meta.env.VITE_API_URL}/auth/${p.pictured_by}`,
+        {
+          headers:{
+            'Content-Type': `application/json`,
+            'ngrok-skip-browser-warning': '69420',
+          }
+        }
+      )
+      .then(response=> setUsers([...users, response.data.displayName]))
+      .catch(error=> console.error('Error fetching data: ',error))
+    );
+    },[products, users]);
   
 
   const handleItemClick = (photo_id:number)=>{
@@ -47,7 +57,7 @@ function HomePage() {
             onClick={()=> handleItemClick(product.photo_id)}>
             <img src={product.url} alt={`Product ${index + 1}`} />
             <p>photo by {
-            users.find(user=> product.pictured_by == user.email )?.displayName
+            users[index]
             }</p>
             <p>price:{product.price}</p>
           </div>
