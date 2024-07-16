@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,7 +15,7 @@ interface Post {
   created_at: string;
 }
 
-function TipPage() {
+const TipPage: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const navigate = useNavigate();
 
@@ -45,6 +45,6 @@ function TipPage() {
       </button>
     </div>
   );
-}
+};
 
 export default TipPage;

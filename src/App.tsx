@@ -1,8 +1,5 @@
-//import { useState } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
-import './App.css'
-import {  Route, Routes } from 'react-router-dom'
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage';
@@ -20,35 +17,32 @@ import PostTipPage from './pages/PostTipPage';
 import ViewTipPage from './pages/ViewTipPage';
 import SuccessLogin from './components/SuccessLogin';
 
-const App:  React.FC = () =>{
-    return (
+const App: React.FC = () => {
+  return (
     <div>
       <NavBar />
       <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/tagpage" element={<TagPage/>}/>
-
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path= "/editprofile" element={<EditProfilePage/>}/>
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/sales" element={<SalesPage />} />
-          <Route path="/purchases" element={<PurchasePage />} />
-          <Route path="/login" element={<LoginPage baseroute='/'/>}/>
-          <Route path="profile/login" element={<LoginPage baseroute='/profile'/>}/>
-          <Route path="cart/login" element={<LoginPage baseroute='/cart'/>}/>
-          <Route path="sales/login" element={<LoginPage baseroute='/sales'/>}/>
-          <Route path="purchases/login" element={<LoginPage baseroute='/purchases'/>}/>
-          <Route path="/success" element={<SuccessLogin/>}/>
-          
-          <Route path="/logout" element={<LogoutPage/>}/>
-          <Route path="/product/:id" element={<ProductDetailPage />} />
-          <Route path="/photo-tips" element={<TipPage/>}/>
-          <Route path="/posttip" element={<PostTipPage/>}/>
-          <Route path="/viewtip/:postId" element={<ViewTipPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/tagpage" element={<TagPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/editprofile" element={<EditProfilePage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/sales" element={<SalesPage />} />
+        <Route path="/purchases" element={<PurchasePage />} />
+        <Route path="/login" element={<LoginPage baseroute="/" />} />
+        <Route path="profile/login" element={<LoginPage baseroute="/profile" />} />
+        <Route path="cart/login" element={<LoginPage baseroute="/cart" />} />
+        <Route path="sales/login" element={<LoginPage baseroute="/sales" />} />
+        <Route path="purchases/login" element={<LoginPage baseroute="/purchases" />} />
+        <Route path="/success" element={<SuccessLogin />} />
+        <Route path="/logout" element={<LogoutPage />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
+        <Route path="/photo-tips" element={<TipPage />} />
+        <Route path="/posttip" element={<PostTipPage />} />
+        <Route path="/viewtip/:postId" element={<ViewTipPage />} />
       </Routes>
     </div>
-    );
-
+  );
 };
 
 export default App;
