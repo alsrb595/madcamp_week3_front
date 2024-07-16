@@ -24,12 +24,13 @@ interface User{
 }
 
 function HomePage() {
-  //const [message, setMessage] = useState('');
+  
   const[products, setProducts] =useState<Product[]>([]);
   const[users, setUsers]= useState<User[]>([]);
   const navigate=useNavigate();
 
 
+  //const [message, setMessage] = useState('');
   useEffect(()=>{
     axios.get('/src/assets/jsons/products.json')
       .then(response=> setProducts(response.data))
@@ -37,14 +38,12 @@ function HomePage() {
     axios.get('/src/assets/jsons/users.json')
       .then(response=> setUsers(response.data))
       .catch(error=> console.error('Error fetching data: ', error));
+      /*axios.get('/api')
+          .then(response => setMessage(response.data))
+          .catch(error => console.error('Error fetching data:', error));*/
+
     },[]);
   
-  /*(() => {
-  **  axios.get('/api')
-  **    .then(response => setMessage(response.data))
-  **    .catch(error => console.error('Error fetching data:', error));
-  **}, []);*/
-
 
   const handleItemClick = (photo_id:number)=>{
     navigate('/product/'+photo_id);

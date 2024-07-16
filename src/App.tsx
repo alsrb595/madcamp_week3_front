@@ -18,6 +18,7 @@ import EditProfilePage from './pages/EditProfilePage';
 import TipPage from './pages/TipPage';
 import PostTipPage from './pages/PostTipPage';
 import ViewTipPage from './pages/ViewTipPage';
+import SuccessLogin from './components/SuccessLogin';
 
 const App:  React.FC = () =>{
     return (
@@ -37,6 +38,8 @@ const App:  React.FC = () =>{
           <Route path="cart/login" element={<LoginPage baseroute='/cart'/>}/>
           <Route path="sales/login" element={<LoginPage baseroute='/sales'/>}/>
           <Route path="purchases/login" element={<LoginPage baseroute='/purchases'/>}/>
+          <Route path="/success" element={<SuccessLogin/>}/>
+          
           <Route path="/logout" element={<LogoutPage/>}/>
           <Route path="/product/:id" element={<ProductDetailPage />} />
           <Route path="/photo-tips" element={<TipPage/>}/>

@@ -1,60 +1,29 @@
 // src/components/LoginPage.tsx
-import React, { useState,useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import mockUsers from '../assets/jsons/mockUser.json'
-import axios from 'axios';
-import {useCart} from '../contexts/CartContext';
+import React, { useState } from 'react';
 
+//const serverURl='https://witty-lovely-killdeer.ngrok-free.app';
 
 interface LoginPageProps{
   baseroute: string;
 }
 
-interface User{
-  email: string;
-  googleId: string;
-  displayName: string;
-}
-
-
 const LoginPage: React.FC<LoginPageProps> = ({baseroute}) => {
-  const navigate = useNavigate();
-  const { login } = useAuth();
-  const {loginCart} =useCart();
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [users, setUsers]= useState<User[]>([]);
+ 
 
-  useEffect(()=>{
-    axios.get('/src/assets/jsons/users.json')
-      .then(response=> setUsers(response.data))
-      .catch(error=> console.error('Error fetching data: ',error));
-  },[]);
+  const handleGoogleLogin =()=>{
+    //const googleAuthUrl = `${import.meta.env.VITE_API_URL}/auth/google`;
+    const serverURl=import.meta.env.VITE_API_URL;
+    const googleAuthUrl =serverURl+'/auth/google';
+    window.location.href = googleAuthUrl;
+  }
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const mockuser= mockUsers.find(u=>(u.id == username));
-    if( !! mockuser && mockuser.pw == password){
-      const userProfile= users.find(user=> user.googleId==username);
-      if(! userProfile){
-        throw new Error("no user info found");
-      }
-      else {
-        login(userProfile);
-        await loginCart(userProfile.googleId);
-      }
-    }
-    else{
-     // findAllInRenderedTree('invalid username or password');
-    }
-    navigate(baseroute);
-  };
 
   return (
     <div>
       <h1>Login</h1>
-      <form onSubmit={handleLogin}>
+      <form >
         <input
           type="text"
           value={username}
@@ -69,6 +38,7 @@ const LoginPage: React.FC<LoginPageProps> = ({baseroute}) => {
         />
         <button type="submit">Login</button>
       </form>
+      <button onClick={handleGoogleLogin}> Google로 로그인하기</button>
     </div>
   );
 };
