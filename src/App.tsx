@@ -18,6 +18,7 @@ import ViewTipPage from './pages/ViewTipPage';
 import MyProductPage from './pages/MyProductPage';
 import SuccessLogin from './components/SuccessLogin';
 import ProductUploadPage from './pages/ProductUploadPage';
+import NewTagPage from './pages/newTagPage';
 
 const App: React.FC = () => {
   return (
@@ -25,7 +26,7 @@ const App: React.FC = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/tagpage" element={<TagPage />} />
+        <Route path="/tagpage" element={<NewTagPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/editprofile" element={<EditProfilePage />} />
         <Route path="/cart" element={<CartPage />} />

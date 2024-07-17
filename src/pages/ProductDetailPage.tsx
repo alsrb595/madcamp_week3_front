@@ -19,6 +19,7 @@ const ProductDetailPage: React.FC = () => {
   const { isLoggedIn, userEmail } = useAuth();
   const { addToCart, cartlist } = useCart();
   const { startTransaction, userBuying } = useTransaction();
+  const [users, setUsers] = useState<{ [key: string]: string }>({});
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/photo/${photo_id}`,{
@@ -45,6 +46,31 @@ const ProductDetailPage: React.FC = () => {
       .catch(error => console.error('Error fetching data: ', error));
   }, [photo_id]);
 
+  useEffect(() => {
+    const fetchUsernames = async () => {
+      const usersData: { [key: string]: string } = {};
+      await Promise.all(products.map(async (p) => {
+        try {
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/auth/${p.pictured_by}`, {
+            headers: {
+              'Content-Type': `application/json`,
+              'ngrok-skip-browser-warning': '69420',
+            }
+          });
+          usersData[p.pictured_by] = response.data.displayName;
+        } catch (error) {
+          console.error('Error fetching data: ', error);
+        }
+      }));
+      setUsers(usersData);
+    };
+
+    if (products.length > 0) {
+      fetchUsernames();
+    }
+  }, [products]);
+
+
   if (!product) {
     return <div>Product not found</div>;
   }
@@ -60,7 +86,7 @@ const ProductDetailPage: React.FC = () => {
 
   return (
     <div className="product-detail">
-      <h1>Photo by {product.pictured_by}</h1>
+      <h1>Photo by {users[product.pictured_by]}</h1>
       <div className="product-main">
         <img src={ product.url} alt={`Product ${product.photo_id}`} />
         <div className="product-info">
