@@ -5,11 +5,13 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
 import { UserInfo } from '../interfaces/types';
+import { useCart } from '../contexts/CartContext';
 
 const SuccessLogin: React.FC = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const {login}=useAuth();
+  const {loginCart}=useCart();
 
   useEffect(() => {
     const email = searchParams.get('email');
@@ -27,6 +29,7 @@ const SuccessLogin: React.FC = () => {
         .then(response => {
           const userInfo: UserInfo= response.data;
           login({email: email, displayName: userInfo.displayName, googleId:userInfo.googleId});
+          loginCart(userInfo.email);
         })
         .catch(error => console.error('Error fetching data:', error));
 

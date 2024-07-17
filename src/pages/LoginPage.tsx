@@ -13,7 +13,6 @@ const LoginPage: React.FC<LoginPageProps> = ({baseroute}) => {
  
 
   const handleGoogleLogin =()=>{
-    //const googleAuthUrl = `${import.meta.env.VITE_API_URL}/auth/google`;
     const serverURl=import.meta.env.VITE_API_URL;
     const googleAuthUrl =serverURl+'/auth/google';
     window.location.href = googleAuthUrl;

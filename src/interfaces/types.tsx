@@ -29,7 +29,11 @@ export interface Product {
     photos: Product[];
     posts: Post[];
   }
-
+  export interface Transaction{
+    photo_id:number;
+    consumer_email: string;
+    is_delivered:boolean;
+  }
   export interface Comment{
     comment_id:number;
     post_id: number;
@@ -47,4 +51,10 @@ export interface Product {
     content: string;
     urls: string[];
     comments: Comment[];
+  }
+
+  export interface Cart{
+    cart_email: string,
+    photo_id: number,
+    photo: Product,
   }

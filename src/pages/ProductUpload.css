@@ -1,0 +1,66 @@
+.product-upload-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+}
+
+.product-upload-page h1 {
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.product-upload-page form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  background-color: #333;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-upload-page input,
+.product-upload-page textarea {
+  background-color: #222;
+  color: white;
+  border: 1px solid #444;
+  padding: 20px; /* 패딩을 키워서 입력 필드 크기를 늘림 */
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 1.2em; /* 폰트 크기를 키움 */
+}
+
+.product-upload-page input::placeholder,
+.product-upload-page textarea::placeholder {
+  color: #888;
+}
+
+.product-upload-page input[type="file"] {
+  padding: 10px; /* 파일 입력 필드 패딩을 키움 */
+  font-size: 1.2em; /* 폰트 크기를 키움 */
+}
+
+.product-upload-page textarea {
+  height: 200px; /* 텍스트 영역의 높이를 늘림 */
+}
+
+.product-upload-page button {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1.2em; /* 버튼의 폰트 크기를 키움 */
+  margin-top: 20px;
+}
+
+.product-upload-page button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}

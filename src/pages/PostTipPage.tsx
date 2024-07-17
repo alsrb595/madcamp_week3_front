@@ -37,6 +37,7 @@ const PostTipPage: React.FC = () => {
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/community/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          'ngrok-skip-browser-warning': '69420',
         },
       });
       console.log('Post submitted successfully:', response.data);

@@ -17,6 +17,7 @@ import PostTipPage from './pages/PostTipPage';
 import ViewTipPage from './pages/ViewTipPage';
 import MyProductPage from './pages/MyProductPage';
 import SuccessLogin from './components/SuccessLogin';
+import ProductUploadPage from './pages/ProductUploadPage';
 
 const App: React.FC = () => {
   return (
@@ -36,6 +37,7 @@ const App: React.FC = () => {
         <Route path="sales/login" element={<LoginPage baseroute="/sales" />} />
         <Route path="purchases/login" element={<LoginPage baseroute="/purchases" />} />
         <Route path="/sell" element={<MyProductPage/>}/>
+        <Route path="/uploadproduct" element={<ProductUploadPage/>}/>
         <Route path="/success" element={<SuccessLogin />} />
         <Route path="/logout" element={<LogoutPage />} />
         <Route path="/product/:id" element={<ProductDetailPage />} />

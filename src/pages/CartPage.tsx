@@ -4,10 +4,10 @@ import {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import {useCart} from "../contexts/CartContext";
-//import { useEffect } from 'react';
+
 
 function CartPage() {
-  const {isLoggedIn} = useAuth();
+  const {isLoggedIn,userEmail} = useAuth();
   const {cartlist, removeFromCart} =useCart();
   const [selectedItems, setSelectedItems]= useState<{[key:string]:boolean}>({});
   const navigate =useNavigate();
@@ -40,7 +40,7 @@ function CartPage() {
   const calculateTotal = () => {
     return cartlist
       .filter(item => selectedItems[item.photo_id])
-      .reduce((sum, item) => sum +item.price, 0)
+      .reduce((sum, item) => sum +item.photo.price, 0)
       .toFixed(0);
   }
 
@@ -69,11 +69,11 @@ function CartPage() {
                     onChange={() => handleCheckboxChange(item.photo_id)}
                   />
                 </td>
-                <td><img src={item.url} alt={item.description} width="50" /></td>
-                <td>{item.price}</td>
-                <td>{item.pictured_by}</td>
+                <td><img src={item.photo.url} alt={item.photo.description} width="50" /></td>
+                <td>{item.photo.price}</td>
+                <td>{item.photo.pictured_by}</td>
                 <td>
-                  <button onClick={() => removeFromCart(item.photo_id)}>Delete</button>
+                  <button onClick={() => removeFromCart(item.photo.photo_id, userEmail)}>Delete</button>
                 </td>
               </tr>
             ))}

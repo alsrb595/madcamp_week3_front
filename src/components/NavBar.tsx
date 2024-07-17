@@ -27,7 +27,7 @@ const NavBar: React.FC = () => {
   return (
     <header className="navbar">
       <div className="navbar-logo">
-        <Link to="/">웹이름</Link>
+        <Link to="/">PIXELTRADE</Link>
       </div>
       <div className="navbar-icons">
         <FontAwesomeIcon icon={faShoppingCart} onClick={handleCartClick} />
