@@ -49,7 +49,7 @@ function HomePage() {
   };
   return (
     <div className="home-page">
-      <h1> 웹 로고 </h1>
+      <h1>  <img src="/src/assets/images/pixelTrade_logo.png" alt="Logo" className="logo-image" /> </h1>
       <div className="grid-container">
         {products.map((product, index) => (
           <div key={index}
