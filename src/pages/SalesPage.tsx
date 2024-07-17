@@ -36,7 +36,7 @@ function SalesPage() {
     if (isLoggedIn) {
       fetchTransaction(userEmail);
     }
-  }, [isLoggedIn, userEmail, fetchTransaction]);
+  }, [isLoggedIn, userEmail]);
   
   const handleLogout = () =>{
     if(isLoggedIn){
