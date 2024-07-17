@@ -4,25 +4,23 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import './TipPage.css';
-
-interface Post {
-  post_id: number;
-  displayName: string;
-  post_by: string;
-  title: string;
-  content: string;
-  urls: string[];
-  created_at: string;
-}
+import {Post} from '../interfaces/types';
 
 const TipPage: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('/src/assets/jsons/posts.json')
-      .then(response => setPosts(response.data))
-      .catch(error => console.error('Error fetching posts:', error));
+    axios.get(`${import.meta.env.VITE_API_URL}/community`, {
+      headers: {
+        'Content-Type': `application/json`,
+        'ngrok-skip-browser-warning': '69420',
+      }
+    })
+    .then(response => {
+      setPosts(response.data);
+    })
+    .catch(error => console.error('Error fetching data: ', error));
   }, []);
 
   const handlePostClick = (post_id: number) => {

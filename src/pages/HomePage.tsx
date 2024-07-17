@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './HomePage.css';
 import { useNavigate } from 'react-router-dom';
-import{Product} from '../interfaces/types';
+import { Product } from '../interfaces/types';
 
 /*interface User{
   email: string;
@@ -12,41 +12,51 @@ import{Product} from '../interfaces/types';
 }*/
 
 function HomePage() {
-  
-  const[products, setProducts] =useState<Product[]>([]);
-  const[users, setUsers]= useState<string[]>([]);
-  const navigate=useNavigate();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [users, setUsers] = useState<{ [key: string]: string }>({});
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_API_URL}/photo`, {
+      headers: {
+        'Content-Type': `application/json`,
+        'ngrok-skip-browser-warning': '69420',
+      }
+    })
+    .then(response => {
+      setProducts(response.data);
+    })
+    .catch(error => console.error('Error fetching data: ', error));
+  }, []);
 
-  //const [message, setMessage] = useState('');
-  useEffect(()=>{
-    axios.get(`${import.meta.env.VITE_API_URL}/photo`,
-        {
-          headers: {
-            'Content-Type': `application/json`,
-            'ngrok-skip-browser-warning': '69420',
-          }
-        })
-      .then(response=> setProducts(response.data))
-      .catch(error=> console.error('Error fetching data: ', error));
-    products.forEach(p=> 
-      axios.get(`${import.meta.env.VITE_API_URL}/auth/${p.pictured_by}`,
-        {
-          headers:{
-            'Content-Type': `application/json`,
-            'ngrok-skip-browser-warning': '69420',
-          }
+  useEffect(() => {
+    const fetchUsernames = async () => {
+      const usersData: { [key: string]: string } = {};
+      await Promise.all(products.map(async (p) => {
+        try {
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/auth/${p.pictured_by}`, {
+            headers: {
+              'Content-Type': `application/json`,
+              'ngrok-skip-browser-warning': '69420',
+            }
+          });
+          usersData[p.pictured_by] = response.data.displayName;
+        } catch (error) {
+          console.error('Error fetching data: ', error);
         }
-      )
-      .then(response=> setUsers([...users, response.data.displayName]))
-      .catch(error=> console.error('Error fetching data: ',error))
-    );
-    },[products, users]);
-  
+      }));
+      setUsers(usersData);
+    };
 
-  const handleItemClick = (photo_id:number)=>{
-    navigate('/product/'+photo_id);
+    if (products.length > 0) {
+      fetchUsernames();
+    }
+  }, [products]);
+
+  const handleItemClick = (photo_id: number) => {
+    navigate('/product/' + photo_id);
   };
+
   return (
     <div className="home-page">
       <h1> 웹 로고 </h1>
@@ -54,12 +64,10 @@ function HomePage() {
         {products.map((product, index) => (
           <div key={index}
             className="grid-item"
-            onClick={()=> handleItemClick(product.photo_id)}>
+            onClick={() => handleItemClick(product.photo_id)}>
             <img src={product.url} alt={`Product ${index + 1}`} />
-            <p>photo by {
-            users[index]
-            }</p>
-            <p>price:{product.price}</p>
+            <p>photo by {users[product.pictured_by]}</p>
+            <p>price: {product.price}</p>
           </div>
         ))}
       </div>

@@ -29,3 +29,22 @@ export interface Product {
     photos: Product[];
     posts: Post[];
   }
+
+  export interface Comment{
+    comment_id:number;
+    post_id: number;
+    displayName: string;
+    email: string;
+    content: string;
+    created_at: string;
+  }
+
+  export interface Post{
+    post_id: number;
+    displayName: string;
+    post_by: string;
+    title: string;
+    content: string;
+    urls: string[];
+    comments: Comment[];
+  }
